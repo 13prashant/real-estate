@@ -1,0 +1,20 @@
+{
+  "name": "real-estate",
+  "version": "1.0.0",
+  "description": "Backend API for Real Estate App",
+  "main": "server.js",
+  "scripts": {
+    "start": "SET NOD_ENV=production & node server",
+    "dev": "nodemon server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/13prashant/real-estate.git"
+  },
+  "author": "Prashant Patel",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/13prashant/real-estate/issues"
+  },
+  "homepage": "https://github.com/13prashant/real-estate#readme"
+}
