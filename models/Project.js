@@ -12,7 +12,7 @@ const ProjectSchema = new mongoose.Schema({
     required: true,
   },
   mobile: {
-    type: Number,
+    type: String,
   },
   email: {
     type: String,
@@ -24,15 +24,31 @@ const ProjectSchema = new mongoose.Schema({
   },
   details: [
     {
-      bedrooms: {
+      type: {
+        type: String,
+        enum: ["Flat", "Row House"],
+        required: [true, "Please select type of project"],
+      },
+      bhk: {
         type: Number,
         required: [true, "Please add number of bedrooms"],
       },
       price: {
         type: Number,
       },
-      area: {
+      superArea: {
         type: Number,
+      },
+      carpetArea: {
+        type: Number,
+      },
+      parking: {
+        cars: {
+          type: Number,
+        },
+        bikes: {
+          type: Number,
+        },
       },
       sold: [
         {

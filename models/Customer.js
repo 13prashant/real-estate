@@ -9,12 +9,9 @@ const CustomerSchema = new mongoose.Schema({
     type: String,
     required: [true, "Please add your surname"],
   },
-  fullName: {
-    type: String,
-    required: true,
-  },
+  fullName: String,
   mobile: {
-    type: Number,
+    type: String,
     unique: true,
   },
   email: {
@@ -34,7 +31,7 @@ const CustomerSchema = new mongoose.Schema({
   },
 });
 
-CustomerSchema.pre("save", function (next) {
+CustomerSchema.pre("save", async function (next) {
   this.fullName = `${this.firstName} ${this.lastName}`;
 });
 

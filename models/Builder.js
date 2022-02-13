@@ -7,7 +7,7 @@ const BuilderSchema = new mongoose.Schema({
     trim: true,
   },
   mobile: {
-    type: Number,
+    type: String,
     unique: true,
   },
   email: {

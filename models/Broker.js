@@ -11,10 +11,9 @@ const BrokerSchema = new mongoose.Schema({
   },
   fullName: {
     type: String,
-    required: true,
   },
   mobile: {
-    type: Number,
+    type: String,
     unique: true,
   },
   email: {
@@ -34,7 +33,7 @@ const BrokerSchema = new mongoose.Schema({
   },
 });
 
-BrokerSchema.pre("save", function (next) {
+BrokerSchema.pre("save", async function (next) {
   this.fullName = `${this.firstName} ${this.lastName}`;
 });
 
