@@ -10,6 +10,12 @@ dotenv.config({ path: "./config/config.env" });
 // Connect to database
 connectDB();
 
+// Import routes
+const builders = require("./routes/builders");
+const projects = require("./routes/projects");
+const customers = require("./routes/customers");
+const brokers = require("./routes/brokers");
+
 // Initialize express app
 const app = express();
 
@@ -17,6 +23,12 @@ const app = express();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
+// Mount routers
+app.use("/api/v1/builders", builders);
+app.use("/api/v1/projects", projects);
+app.use("/api/v1/customers", customers);
+app.use("/api/v1/brokers", brokers);
 
 const PORT = process.env.PORT || 5000;
 

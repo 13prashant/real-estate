@@ -7,7 +7,7 @@ const ProjectSchema = new mongoose.Schema({
     trim: true,
   },
   builder: {
-    type: mongoose.Schema.ObjectId,
+    type: mongoose.Schema.Types.ObjectId,
     ref: "Builder",
     required: true,
   },
@@ -53,11 +53,11 @@ const ProjectSchema = new mongoose.Schema({
       sold: [
         {
           customer: {
-            type: mongoose.Schema.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "Customer",
           },
           broker: {
-            type: mongoose.Schema.ObjectId,
+            type: mongoose.Schema.Types.ObjectId,
             ref: "Broker",
           },
         },

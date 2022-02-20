@@ -25,12 +25,10 @@ const BuilderSchema = new mongoose.Schema({
     minlength: 8,
     select: false,
   },
-  projects: [
-    {
-      type: mongoose.Schema.ObjectId,
-      ref: "Project",
-    },
-  ],
+  projects: {
+    type: [mongoose.Schema.Types.ObjectId],
+    ref: "Project",
+  },
 });
 
 module.exports = mongoose.model("Builder", BuilderSchema);
