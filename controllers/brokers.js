@@ -1,3 +1,4 @@
+const ErrorResponse = require("../utils/errorResponse");
 const Broker = require("../models/Broker");
 
 // @desc    Get all brokers

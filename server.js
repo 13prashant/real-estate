@@ -3,6 +3,7 @@ const dotenv = require("dotenv");
 const connectDB = require("./config/db");
 const morgan = require("morgan");
 const colors = require("colors");
+const errorHandler = require("./middlewares/error");
 
 // Load env vars
 dotenv.config({ path: "./config/config.env" });
@@ -29,6 +30,8 @@ app.use("/api/v1/builders", builders);
 app.use("/api/v1/projects", projects);
 app.use("/api/v1/customers", customers);
 app.use("/api/v1/brokers", brokers);
+
+app.use(errorHandler);
 
 const PORT = process.env.PORT || 5000;
 
