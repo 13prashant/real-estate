@@ -7,10 +7,11 @@ const dotenv = require("dotenv");
 dotenv.config({ path: "./config/config.env" });
 
 // Load models
-const Builder = require("./models/Builder");
+const User = require("./models/User");
+// const Builder = require("./models/Builder");
 const Project = require("./models/Project");
-const Customer = require("./models/Customer");
-const Broker = require("./models/Broker");
+// const Customer = require("./models/Customer");
+// const Broker = require("./models/Broker");
 
 // Connect to db
 mongoose.connect(process.env.MONGO_URI);
@@ -35,10 +36,10 @@ const brokers = JSON.parse(
 // Import to db
 const importData = async () => {
   try {
-    await Customer.create(customers);
-    await Broker.create(brokers);
+    await User.create(customers);
+    await User.create(brokers);
     await Project.create(projects);
-    await Builder.create(builders);
+    await User.create(builders);
     console.log("Data imported...".green.inverse);
     process.exit();
   } catch (error) {
@@ -48,10 +49,11 @@ const importData = async () => {
 
 const destroyData = async () => {
   try {
-    await Builder.deleteMany();
+    await User.deleteMany();
+    // await Builder.deleteMany();
     await Project.deleteMany();
-    await Customer.deleteMany();
-    await Broker.deleteMany();
+    // await Customer.deleteMany();
+    // await Broker.deleteMany();
     console.log("Data destroyed...".red.inverse);
     process.exit();
   } catch (error) {

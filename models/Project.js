@@ -8,7 +8,7 @@ const ProjectSchema = new mongoose.Schema({
   },
   builder: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "Builder",
+    ref: "User",
     required: true,
   },
   mobile: {
@@ -54,11 +54,11 @@ const ProjectSchema = new mongoose.Schema({
         {
           customer: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Customer",
+            ref: "User",
           },
           broker: {
             type: mongoose.Schema.Types.ObjectId,
-            ref: "Broker",
+            ref: "User",
           },
         },
       ],
